@@ -318,12 +318,16 @@ class Board(object):
 
         while True:
 
+            print(self.to_string())
+            print(self.get_legal_moves())
+
             legal_player_moves = self.get_legal_moves()
             game_copy = self.copy()
 
             move_start = time_millis()
             time_left = lambda : time_limit - (time_millis() - move_start)
             curr_move = self._active_player.get_move(game_copy, time_left)
+            print(curr_move)
             move_end = time_left()
 
             if curr_move is None:
